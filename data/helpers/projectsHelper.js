@@ -1,5 +1,5 @@
-const db = require('../dbConfig');
-const mappers = require('./mappers');
+const db = require('../dbConfig.js');
+const mappers = require('./mappers.js');
 
 module.exports = {
     getProjects: function(id) {
@@ -35,7 +35,7 @@ module.exports = {
     insert: function(project) {
       return db('projects')
         .insert(project)
-        .then(([id]) => this.get(id));
+        .then(([id]) => this.getProjects(id));
     },
     update: function(id, changes) {
       return db('projects')

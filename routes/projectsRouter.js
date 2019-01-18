@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../data/helpers/helpers.js');
+const db = require('../data/helpers/projectsHelper.js');
 
 // routes
 router.get('/:id', (req, res) => {
@@ -23,6 +23,18 @@ router.get('/', (req, res) => {
         .catch(err => {
             res.status(500).json(err);
         });
+});
+
+router.post('/', (req, res) => {
+    const projectInfo = req.body;
+
+    db.insert(projectInfo)
+        .then(newProject => {
+            res.status(201).json(newProject);
+        })
+        .catch(err => {
+            res.status(500).json({ error: "There was a problem. The project was not created." })
+        })
 });
 
 
