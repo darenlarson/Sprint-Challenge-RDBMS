@@ -3,7 +3,7 @@ const mappers = require('./mappers.js');
 
 module.exports = {
     getProjects: function(id) {
-      let query = db('projects as p');
+      let query = db('projects as p').select('p.id', 'p.name', 'p.description', 'p.complete');
   
       if (id) {
         query.where('p.id', id).first();
@@ -28,7 +28,8 @@ module.exports = {
       });
     },
     getProjectActions: function(projectId) {
-      return db('actions')
+      return db('actions as a')
+        .select('a.id', 'a.description', 'a.notes', 'a.complete')
         .where('project_id', projectId)
         .then(actions => actions.map(action => mappers.actionToBody(action)));
     },

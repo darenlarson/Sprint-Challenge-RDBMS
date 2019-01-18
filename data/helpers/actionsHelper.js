@@ -3,7 +3,7 @@ const mappers = require('./mappers');
 
 module.exports = {
   getActions: function(id) {
-    let query = db('actions');
+    let query = db('actions as a').select('a.id', 'a.description', 'a.notes', 'a.complete');
 
     if (id) {
       return query
