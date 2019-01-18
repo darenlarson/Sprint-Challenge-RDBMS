@@ -4,12 +4,13 @@ const mappers = require('./mappers');
 module.exports = {
   getActions: function(id) {
     let query = db('actions as a').select('a.id', 'a.description', 'a.notes', 'a.complete');
+    let contextQuery = db('contexts as c').select('*').join('actionscontexts as ac', 'ac.contexts_id', '=', 'c.id').where('c.id', '=', 'a.id');
 
     if (id) {
       return query
         .where('id', id)
         .first()
-        .then(action => mappers.actionToBody(action));
+        .then(action => mappers.actionToBody(action, contextQuery));
     }
 
     return query.then(actions => {

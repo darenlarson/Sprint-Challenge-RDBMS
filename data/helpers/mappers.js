@@ -29,9 +29,10 @@ module.exports = {
     return result;
   }
   
-  function actionToBody(action) {
+  function actionToBody(action, context) {
     return {
       ...action,
       complete: intToBoolean(action.complete),
+      contexts: context
     };
   }
