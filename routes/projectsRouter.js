@@ -37,5 +37,30 @@ router.post('/', (req, res) => {
         })
 });
 
+router.put('/:id', (req, res) => {
+    const id = req.params.id;
+    const changes = req.body;
+
+    db.update(id, changes)
+        .then(editedProject => {
+            res.status(200).json(editedProject);
+        })
+        .catch(err => {
+            res.status(500).json(err)
+        })
+});
+
+router.delete('/:id', (req, res) => {
+    const id = req.params.id;
+
+    db.remove(id)
+        .then(count => {
+            res.status(200).json({ message: `${count} project has been removed`});
+        })
+        .catch(err => {
+            res.status(500).json(err);
+        });
+});
+
 
 module.exports = router;

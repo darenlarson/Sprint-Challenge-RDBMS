@@ -42,7 +42,7 @@ module.exports = {
       return db('projects')
         .where('id', id)
         .update(changes)
-        .then(count => (count > 0 ? this.get(id) : null));
+        .then(count => (count > 0 ? this.getProjects(id) : null));
     },
     remove: function(id) {
       return db('projects')
