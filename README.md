@@ -29,9 +29,17 @@ This will be akin to the Web API that you built in the last sprint, only this ti
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 1. Explain the difference between `RDBMS` and `SQL`.
+RDBMS stands for Relational Database Management Systems. It is a generic term that describes software that manages a database.
+SQL stands for Structured Query Language. It is the standard language used to manage and interact with databases. Most RDBMS support the SQL language.
+
 1. Why do tables need a `primary key`?
+Primary keys are used to ensure that each record in a table can be uniquely identified.
+
 1. What is the name given to a table column that references the primary key on another table.
+Foreign key
+
 1. What do we need in order to have a _many to many_ relationship between two tables.
+A third table is needed that has two foreign keys. One foreign key references the primary key in one table in the relationship, the other foreign key references the primary key in the other table of the relationship. The two tables are linked to each other by this third table. Essentially, this third table has a one to many relationship with table 1, and a one to many relationship with table 2, creating the illusion of a many to many relationship between table 1 and table 2.
 
 ## Project Set Up
 
@@ -73,7 +81,7 @@ Feel free to name the tables and fields anything you want. **Add relationships**
 - [X] Build the API with the following endpoints:
 
   - [X] POST for adding projects.
-  - [ ] POST for adding actions.
+  - [X] POST for adding actions.
   - [X] GET for retrieving a `project` by its `id` that returns an object with the following structure:
 
     ```js
