@@ -29,20 +29,28 @@ This will be akin to the Web API that you built in the last sprint, only this ti
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 1. Explain the difference between `RDBMS` and `SQL`.
+RDBMS stands for Relational Database Management Systems. It is a generic term that describes software that manages a database.
+SQL stands for Structured Query Language. It is the standard language used to manage and interact with databases. Most RDBMS support the SQL language.
+
 1. Why do tables need a `primary key`?
+Primary keys are used to ensure that each record in a table can be uniquely identified.
+
 1. What is the name given to a table column that references the primary key on another table.
+Foreign key
+
 1. What do we need in order to have a _many to many_ relationship between two tables.
+A third table is needed that has two foreign keys. One foreign key references the primary key in one table in the relationship, the other foreign key references the primary key in the other table of the relationship. The two tables are linked to each other by this third table. Essentially, this third table has a one to many relationship with table 1, and a one to many relationship with table 2, creating the illusion of a many to many relationship between table 1 and table 2.
 
 ## Project Set Up
 
 Follow these steps for starting your project.
 
-- [ ] Create a forked copy of this project.
-- [ ] Add your project manager as collaborator on Github.
-- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!).
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
+- [X] Create a forked copy of this project.
+- [X] Add your project manager as collaborator on Github.
+- [X] Clone your OWN version of the repository (Not Lambda's by mistake!).
+- [X] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [X] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [X] Push commits: git push origin `<firstName-lastName>`.
 
 Follow these steps for completing your project.
 
@@ -54,27 +62,27 @@ Follow these steps for completing your project.
 
 **NOTE** There is no boilerplate for you for this project. You will need to take the steps necessary for creating this project from scratch. Start by initializing your project with a `package.json` file and go from there.
 
-- [ ] A `project` can contain multiple actions and has:
-  - [ ] a unique Id.
-  - [ ] a name.
-  - [ ] a description.
-  - [ ] a flag that indicates if the project is complete or not.
-- [ ] An `action` belongs to only one project. An action has:
-  - [ ] a unique id.
-  - [ ] a description of what needs to be done.
-  - [ ] a notes column to add additional information.
-  - [ ] a flag that indicates if the action has been completed.
+- [X] A `project` can contain multiple actions and has:
+  - [X] a unique Id.
+  - [X] a name.
+  - [X] a description.
+  - [X] a flag that indicates if the project is complete or not.
+- [X] An `action` belongs to only one project. An action has:
+  - [X] a unique id.
+  - [X] a description of what needs to be done.
+  - [X] a notes column to add additional information.
+  - [X] a flag that indicates if the action has been completed.
 
 Feel free to name the tables and fields anything you want. **Add relationships** as you see fit.
 
 ### Tasks
 
-- [ ] Build the database and tables using knex migrations. **Seeding is not needed**.
-- [ ] Build the API with the following endpoints:
+- [X] Build the database and tables using knex migrations. **Seeding is not needed**.
+- [X] Build the API with the following endpoints:
 
-  - [ ] POST for adding projects.
-  - [ ] POST for adding actions.
-  - [ ] GET for retrieving a `project` by its `id` that returns an object with the following structure:
+  - [X] POST for adding projects.
+  - [X] POST for adding actions.
+  - [X] GET for retrieving a `project` by its `id` that returns an object with the following structure:
 
     ```js
     {
@@ -103,9 +111,9 @@ Feel free to name the tables and fields anything you want. **Add relationships**
 
 This section is **optional** and not counted towards MVP. Start working on it after you're done with the main assignment.
 
-Add the remaining CRUD operations for projects and actions.
+X Add the remaining CRUD operations for projects and actions.
 
-Use `knext` to add _data seeding_ scripts for projects and actions.
+X Use `knext` to add _data seeding_ scripts for projects and actions.
 
 Add support for the concept of `contexts`. A context is something like _at home_, _at work_ or _at computer_. The idea is that some actions require one or more `contexts` in order to be worked on. For example, the action of _file income taxes_ may require that you are _at home_, _at computer_ and _online_ so if you are _at work_ and look at the list of pending actions you could do in your current context, filing your taxes will not be one of them.
 
